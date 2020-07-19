@@ -104,16 +104,18 @@ function populateStoresOptions(storesArray) {
     var sAddr = `${storeInfo.block_house_num} ${storeInfo.street_name} ${storeInfo.postal_code}`;
 
     output += `
-        <div class="card text-center">
-          <div class="card-header">
-            ${storeInfo.licensee_name}
-          </div>
-          <div class="card-body style='width: 12rem;'>
-            <h5 class="card-title">${storeInfo.building_name}</h5>
-            <p class="card-text">${storeInfo.block_house_num} ${storeInfo.street_name} ${storeInfo.postal_code}</p>
-          </div>
-          <div class="card-footer text-muted">
-            <input type="submit" value="Get Location Map" onclick="return getStoreLocationMap('${sAddr}');"/>
+        <div class="col-lg-2 col-md-4 col-sm-6 px-0">
+          <div class="card text-center">
+            <div class="card-header">
+              ${storeInfo.licensee_name}
+            </div>
+            <div class="card-body style='width: 12rem;'>
+              <h5 class="card-title">${storeInfo.building_name}</h5>
+              <p class="card-text text-muted">${storeInfo.block_house_num} ${storeInfo.street_name} ${storeInfo.postal_code}</p>
+            </div>
+            <div class="card-footer text-muted">
+              <input type="submit" value="Get Location Map" onclick="return getStoreLocationMap('${sAddr}');"/>
+            </div>
           </div>
         </div>
         `;
@@ -132,7 +134,7 @@ $(function () {
 
     // Retrieves list of stores from data,gov.sg API
     $.get(
-      "https://data.gov.sg/api/action/datastore_search?resource_id=3561a136-4ee4-4029-a5cd-ddf591cce643&limit=5",
+      "https://data.gov.sg/api/action/datastore_search?resource_id=3561a136-4ee4-4029-a5cd-ddf591cce643&limit=6",
       function (data) {
         //alert(data.result.records[0].licensee_name);
         storesData = data;

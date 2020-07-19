@@ -90,6 +90,7 @@ function getTopProducts() {
     var sName = prod.name;
 
     output += `
+          <div class="col-lg-2 col-md-3 col-sm-4 px-0">
             <div class="card hover-higlight">
                 <img src="images/${loopIndex}.png" class="card-img-top" alt="">
                 <div class="card-body">
@@ -100,6 +101,7 @@ function getTopProducts() {
                    <button type="button" id="btnShowDetails" onClick="return showProductDetails('${sName}', '${loopIndex}')" class="btn btn-primary btn-sm">Show Details</button>
                 </div>
             </div>
+          </div>
         `;
 
     loopIndex += 1;

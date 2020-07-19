@@ -40,11 +40,6 @@
 
 /* top header Styles */
 
-.nav_main .nav-link {
-    color: #fff;
-    background-color: black;
-}
-
 .nav_main .nav-link:hover {
     color: yellow;
     background-color: gray;
@@ -58,7 +53,7 @@
 }
 
 .nav_specials .nav-link:hover {
-    color: yellow;
+    color: white;
     background-color: black;
 }
 

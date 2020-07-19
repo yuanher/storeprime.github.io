@@ -32,70 +32,109 @@
   </head>
   <body>
     <header id="top_header" class="container">
-      <div class="header-background">
+      <div class="header-background" id="banner">
         <div class="header-transbox">
           <h1 class="text-center">Grocery Store</p>
         </div>
       </div>
     
-      <ul class="nav nav-pills nav-fill nav_main">
-        <li class="nav-item">
-          <a class="nav-link" href="index.html">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="about.html">About</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="contact.html">Contact</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
-            aria-expanded="false">Account</a>
-          <div class="dropdown-menu">
-            <a class="dropdown-item btnNotification" href="#">Enable Notifications</a>
-            <section class="subscription-details js-subscription-details is-invisible">
-              <pre><code class="js-subscription-json"></code></pre>
-            </section>
+      <div id="navigation_menu">
+        <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+          <div class="container">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar_main">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbar_main">
+              <ul class="navbar-nav nav nav_main nav-fill w-100">
+                <li class="nav-item">
+                  <a class="nav-link text-white" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link text-white" href="about.html">About</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link text-white" href="contact.html">Contact</a>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle text-white" data-toggle="dropdown" href="#" role="button"
+                    aria-haspopup="true" aria-expanded="false">Account</a>
+                  <div class="dropdown-menu">
+                    <a class="dropdown-item btnNotification" href="#">Enable Notifications</a>
+                    <section class="subscription-details js-subscription-details is-invisible">
+                      <pre><code class="js-subscription-json"></code></pre>
+                    </section>
+                  </div>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link text-white" href="shoppingcart.html">Shopping Cart</a>
+                </li>
+              </ul>
+            </div>
           </div>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="shoppingcart.html">Shopping Cart</a>
-        </li>
-      </ul>
+        </nav>
+      </div>
     </header>
 
     <div class="container py-5">
 
       <section class="content" id="feedback">
         <div class="row">
-          <div class="col-3">
-            <ul class="nav nav-pills flex-column nav_specials">
-              <li class="nav-item">
-                <a class="nav-link" href="#">Branded Foods</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Veggies and Fruits</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Beverages</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Frozen Foods</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Bread and Bakery</a>
-              </li>
-            </ul>
-            <img src="images/supermarket.jpg" alt="" class="img-fluid" />
+          <!--div class="col-lg-3 col-sm-3">
+                            <ul class="nav nav-pills flex-column  nav_specials">
+                              <li class="nav-item">
+                                <a class="nav-link" href="#">Branded Foods</a>
+                              </li>
+                              <li class="nav-item">
+                                <a class="nav-link" href="#">Veggies and Fruits</a>
+                              </li>
+                              <li class="nav-item">
+                                <a class="nav-link" href="#">Beverages</a>
+                              </li>
+                              <li class="nav-item">
+                                <a class="nav-link" href="#">Frozen Foods</a>
+                              </li>
+                              <li class="nav-item">
+                                <a class="nav-link" href="#">Bread and Bakery</a>
+                              </li>
+                            </ul>
+                            <img src="images/supermarket.jpg" alt="" class="img-fluid"/>
+                          </div-->
+        
+          <div class="col-lg-3 col-sm-12" id="navigation_menu_side">
+            <nav class="navbar-toggleable-sm navbar-dark bg-dark">
+              <div class="container">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar_side">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse flex-column" id="navbar_side">
+                  <ul class="navbar-nav">
+                    <li class="nav-item">
+                      <a class="nav-link text-white" href="#">Branded Foods</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link text-white" href="#">Veggies and Fruits</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link text-white" href="#">Beverages</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link text-white" href="#">Frozen Foods</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link text-white" href="#">Bread and Bakery</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </nav>
           </div>
 
-          <!--<img src="bb_logo.png" alt="Grocery Store" />-->
-          <div class="col-9">
-            <div span>
+          <div class="col-lg-9 col-md-12 col-sm-12" id="feedbackDetails">
+            <div id-"titleFeedback" span>
               <h3 class="text-center py-3">Feedback</h3>
             </div>
             <div class="row">
-              <div class="col-md-3">
+              <div class="col-lg-3 col-md-3 col-sm-12" id="contactDetails">
                 <ul class="list-unstyled">
                   <li><i class="fa fa-home" aria-hidden="true"></i></li>
                   <li>500 Dover Road</span></li>
@@ -113,7 +152,7 @@
                   <li><span>(+65) 6775 1133</span></li>
                 </ul>
               </div>
-              <div class="col-md-9">
+              <div class="col-lg-9 col-md-12 col-sm-12" id="feedbackForm">
                 <form
                   name="Feedback"
                   id="Feedback"
@@ -124,7 +163,7 @@
                   class="needs-validation"
                 >
                   <div class="form-row">
-                    <div class="col-md-6 mb-3">
+                    <div class="col-lg-6 col-md-12 col-sm-12 mb-3">
                       <label for="Feedback_FirstName">First name</label>
                       <input
                         type="text"
@@ -137,7 +176,7 @@
                         First Name cannot be empty
                       </div>
                     </div>
-                    <div class="col-md-6 mb-3">
+                    <div class="col-lg-6 col-md-12 col-sm-12 mb-3">
                       <label for="Feedback_LastName">Last name</label>
                       <input
                         type="text"
@@ -152,7 +191,7 @@
                     </div>
                   </div>
                   <div class="form-row">
-                    <div class="col-md-6 mb-3">
+                    <div class="col-lg-6 col-md-12 col-sm-12 mb-3">
                       <label for="Feedback_Email">Email</label>
                       <input
                         type="email"
@@ -164,7 +203,7 @@
                         Email cannot be empty
                       </div>
                     </div>
-                    <div class="col-md-6 mb-3">
+                    <div class="col-lg-6 col-md-12 col-sm-12 mb-3">
                       <label for="Feedback_Telephone">Telephone</label>
                       <input
                         type="text"
@@ -313,27 +352,31 @@
       <section class="content" id="storeMap">
         <div><button type="button" class="btn btn-primary" id="btn_retrieve">Get Stores</button></div>
         <div class="content">
-          <div class="contact-container py-10"></div>
+          <div class="row contact-container py-10"></div>
         </div>
         <div class="content centered-content">
           <div id="map"></div>
-          <div class="row">
-            <div class="col-md-2">
-              <input type="text" class="text text-left" id="txtOrigin" value="">
+          <div class="form-row py-5" id="travelDirections">
+            <div class="col-lg-6 col-md-12 col-sm-12">
+              <label for="txtOrigin">Origin</label>
+              <input type="text"class="form-control" id="txtOrigin" value="">
             </div>
-            <div class="col-md-2">
-              <select class="custom-select custom-select-sm" id="selMode">
+            <div class="col-lg-6 col-md-12 col-sm-12">
+              <label for="selMode">Travel Mode</label>
+              <select class="custom-select custom-select-md" id="selMode">
                 <option>Transit</option>
                 <option>Driving</option>
                 <option>Walking</option>
                 <option>Bicycling</option>
               </select>
             </div>
-            <div class="col-md-2">
-              <button type="button" class="btn btn-primary" id="btn_getDirections">
-                <i class="fa fa-map-marker"><span class="ml-1">Get Directions</span></i>
-              </button>
-            </div>
+            <div class="form row">
+              <div class="col-12 py-3">
+                <button type="button" class="btn btn-primary" id="btn_getDirections">
+                  <i class="fa fa-map-marker"><span class="ml-1">Get Directions</span></i>
+                </button>
+              </div>
+            </div>   
           </div>
           
           <div id="directions"></div>

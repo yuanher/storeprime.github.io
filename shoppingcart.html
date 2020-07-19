@@ -46,67 +46,107 @@
 
   <body>
     <header id="top_header" class="container">
-      <div class="header-background">
+      <div class="header-background" id="banner">
         <div class="header-transbox">
           <h1 class="text-center">Grocery Store</p>
         </div>
       </div>
     
-      <ul class="nav nav-pills nav-fill nav_main">
-        <li class="nav-item">
-          <a class="nav-link" href="index.html">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="about.html">About</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="contact.html">Contact</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
-            aria-expanded="false">Account</a>
-          <div class="dropdown-menu">
-            <a class="dropdown-item btnNotification" href="#">Enable Notifications</a>
-            <section class="subscription-details js-subscription-details is-invisible">
-              <pre><code class="js-subscription-json"></code></pre>
-            </section>
+      <div id="navigation_menu">
+        <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+          <div class="container">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar_main">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbar_main">
+              <ul class="navbar-nav nav nav_main nav-fill w-100">
+                <li class="nav-item">
+                  <a class="nav-link text-white" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link text-white" href="about.html">About</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link text-white" href="contact.html">Contact</a>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle text-white" data-toggle="dropdown" href="#" role="button"
+                    aria-haspopup="true" aria-expanded="false">Account</a>
+                  <div class="dropdown-menu">
+                    <a class="dropdown-item btnNotification" href="#">Enable Notifications</a>
+                    <section class="subscription-details js-subscription-details is-invisible">
+                      <pre><code class="js-subscription-json"></code></pre>
+                    </section>
+                  </div>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link text-white" href="shoppingcart.html">Shopping Cart</a>
+                </li>
+              </ul>
+            </div>
           </div>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="shoppingcart.html">Shopping Cart</a>
-        </li>
-      </ul>
+        </nav>
+      </div>
     </header>
 
     <div class="container py-5">
       <section class="content" id="cart">
         <div class="row">
-          <div class="col-3">
-            <ul class="nav nav-pills flex-column nav_specials">
-              <li class="nav-item">
-                <a class="nav-link" href="#">Branded Foods</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Veggies and Fruits</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Beverages</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Frozen Foods</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Bread and Bakery</a>
-              </li>
-            </ul>
-            <img src="images/supermarket.jpg" alt="" class="img-fluid" />
+          <!--div class="col-lg-3 col-sm-3">
+                                    <ul class="nav nav-pills flex-column  nav_specials">
+                                      <li class="nav-item">
+                                        <a class="nav-link" href="#">Branded Foods</a>
+                                      </li>
+                                      <li class="nav-item">
+                                        <a class="nav-link" href="#">Veggies and Fruits</a>
+                                      </li>
+                                      <li class="nav-item">
+                                        <a class="nav-link" href="#">Beverages</a>
+                                      </li>
+                                      <li class="nav-item">
+                                        <a class="nav-link" href="#">Frozen Foods</a>
+                                      </li>
+                                      <li class="nav-item">
+                                        <a class="nav-link" href="#">Bread and Bakery</a>
+                                      </li>
+                                    </ul>
+                                    <img src="images/supermarket.jpg" alt="" class="img-fluid"/>
+                                  </div-->
+        
+          <div class="col-lg-3 col-sm-12" id="navigation_menu_side">
+            <nav class="navbar-toggleable-sm navbar-dark bg-dark">
+              <div class="container">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar_side">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse flex-column" id="navbar_side">
+                  <ul class="navbar-nav">
+                    <li class="nav-item">
+                      <a class="nav-link text-white" href="#">Branded Foods</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link text-white" href="#">Veggies and Fruits</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link text-white" href="#">Beverages</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link text-white" href="#">Frozen Foods</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link text-white" href="#">Bread and Bakery</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </nav>
           </div>
 
           <!--<img src="bb_logo.png" alt="Grocery Store" />-->
-          <div class="col-9">
+          <div class="col-lg-9 col-md-12 col-sm-12">
                 <div id="items_table">
                   <h4>Shopping Cart Information</h4>
-                  <table class="table table-striped" id="sc"></table>
+                  <table class="table table-striped table-responsive" id="sc"></table>
                   <p>
                     <label><input type=button value="Clear" onclick="ClearAll('sc')">
                       <i>* Delete all</i></label>
@@ -116,7 +156,7 @@
                 <hr class="mt-3 mb-3 py-10" />
                 <div id="notes_table">
                   <h4>Product Notes</h4>
-                  <table class="table table-striped" id="pn"></table>
+                  <table class="table table-striped table-responsive" id="pn"></table>
                   <p>
                     <label><input type=button value="Clear" onclick="ClearAll('pn')">
                       <i>* Delete all</i></label>
