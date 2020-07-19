@@ -1,0 +1,81 @@
+/* Header Styles */
+
+.header-background {
+    background: url(../images/banner5.jpg) repeat;
+    border: 1px solid black;
+}
+
+.header-transbox {
+    background-color: beige;
+    opacity: 0.8;
+}
+
+.header-transbox h1 {
+    margin: 5%;
+    font-weight: bold;
+    color: black;
+}
+
+/* TopProducts Styles */
+
+.hover-higlight {
+    overflow: hidden;
+}
+
+.hover-higlight img {
+    transition: all 1.5s ease;
+}
+
+.hover-higlight:hover {
+    border-color: black;
+}
+
+.hover-higlight:hover img {
+    transform: scale(1.1);
+}
+
+.hover-higlight:hover img {
+    transform: scale(1.1);
+}
+
+/* top header Styles */
+
+.nav_main .nav-link {
+    color: #fff;
+    background-color: black;
+}
+
+.nav_main .nav-link:hover {
+    color: yellow;
+    background-color: gray;
+}
+
+/* Specials Styles */
+
+.nav_specials .nav-link {
+    color: black;
+    background-color: white;
+}
+
+.nav_specials .nav-link:hover {
+    color: yellow;
+    background-color: black;
+}
+
+/* Carousel Styles */
+
+.carousel-link {
+    color: yellow;
+}
+
+/* Map Styles */
+
+#map {
+    height: 50%;
+    width: 100%;
+}
+
+.centered-content {
+    display: block;
+    padding: 0 5px;
+}

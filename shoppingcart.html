@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!--
+``  Grocery Store About Page
+   
+   Filename: about.html
+   -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>Grocery Store</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <script src="js/jquery.min.js"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+      integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+      crossorigin="anonymous"
+    ></script>
+    <script src="js/gs_fb.js"></script>
+    <script src="js/gs_sc.js"></script>
+    <script src="js/gs_pn.js"></script>
+    <link rel="stylesheet" href="css/gs.css" />
+  </head>
+
+  <body>
+    <header id="top_header" class="container">
+      <div class="header-background">
+        <div class="header-transbox">
+          <h1 class="text-center">Grocery Store</p>
+        </div>
+      </div>
+    
+      <ul class="nav nav-pills nav-fill nav_main">
+        <li class="nav-item">
+          <a class="nav-link" href="index.html">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="about.html">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="contact.html">Contact</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+            aria-expanded="false">Account</a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item btnNotification" href="#">Enable Notifications</a>
+            <section class="subscription-details js-subscription-details is-invisible">
+              <pre><code class="js-subscription-json"></code></pre>
+            </section>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="shoppingcart.html">Shopping Cart</a>
+        </li>
+      </ul>
+    </header>
+
+    <div class="container py-5">
+      <section class="content" id="cart">
+        <div class="row">
+          <div class="col-3">
+            <ul class="nav nav-pills flex-column nav_specials">
+              <li class="nav-item">
+                <a class="nav-link" href="#">Branded Foods</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Veggies and Fruits</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Beverages</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Frozen Foods</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Bread and Bakery</a>
+              </li>
+            </ul>
+            <img src="images/supermarket.jpg" alt="" class="img-fluid" />
+          </div>
+
+          <!--<img src="bb_logo.png" alt="Grocery Store" />-->
+          <div class="col-9">
+                <div id="items_table">
+                  <h4>Shopping Cart Information</h4>
+                  <table class="table table-striped" id="sc"></table>
+                  <p>
+                    <label><input type=button value="Clear" onclick="ClearAll('sc')">
+                      <i>* Delete all</i></label>
+                    <input type=button class="float-right" value="Checkout" onclick="Checkout()">
+                  </p>
+                </div>
+                <hr class="mt-3 mb-3 py-10" />
+                <div id="notes_table">
+                  <h4>Product Notes</h4>
+                  <table class="table table-striped" id="pn"></table>
+                  <p>
+                    <label><input type=button value="Clear" onclick="ClearAll('pn')">
+                      <i>* Delete all</i></label>
+                  </p>
+                </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="content py-4" id="recommended">
+
+      </section>
+
+      <section class="content py-4" id="newsletter">
+        <div class="row justify-content-center">
+          <div class="text-center align-self-center">
+            <h5>signup for our newsletter</h5>
+          </div>
+          <form class="form-inline">
+            <div class="form-group mx-sm-3 mb-2">
+              <label for="Email" class="sr-only">Email</label>
+              <input type="email" class="form-control" id="Email"
+              placeholder="example@example.com data-toggle=" tooltip"
+              title="Please enter your email address">
+            </div>
+            <button type="button" id="Submit" disabled="disabled" onClick="return subscribeNewsletter()"
+              class="btn btn-primary mb-2">Subscribe Now</button>
+            <!-- Newsletter Subscription Success MessageBox -->
+            <div class="modal fade" id="msgSubscribe" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog"
+              aria-labelledby="msgSubscribeLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="msgSubscribeLabel"><i class="fa fa-newspaper-o"></i>Newsletter Subscription</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" />
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    .<p><i class="fa fa-check-circle"></i>You have successfully signed up for our newsletter, check your email for
+                      details</p>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal"><i
+                        class="fa fa-window-close-o"></i>Close</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <section class="content text-center" id="footer">
+        <footer>
+          <div class="social-btns">
+            <a type="button" class="btn-floating btn-lg btn-fb"
+              ><i class="fa fa-facebook"></i
+            ></a>
+            <a type="button" class="btn-floating btn-lg btn-tw"
+              ><i class="fa fa-twitter"></i
+            ></a>
+            <a type="button" class="btn-floating btn-lg btn-wa"
+              ><i class="fa fa-whatsapp"></i
+            ></a>
+            <a type="button" class="btn-floating btn-lg btn-tg"
+              ><i class="fa fa-telegram"></i
+            ></a>
+          </div>
+          <!-- Copyright -->
+          <div class="py-1">
+            <p text>Grocery Store &copy; 2020 All Rights Reserved</p>
+          </div>
+          <!-- Copyright -->
+        </footer>
+      </section>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,408 @@
+<html> 
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <!--script src="js/jquery-3.2.1.min.js"></script-->
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+      integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA1c5w9dJew38j2SW2oREqJYCSlnffOxbk&libraries=places"></script>
+    <script src="js/gs_fb.js"></script>
+    <script src="js/gs_map.js"></script>
+    <script src="js/gs_pn.js"></script>
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <link rel="stylesheet" href="css/gs.css" />
+  </head>
+  <body>
+    <header id="top_header" class="container">
+      <div class="header-background">
+        <div class="header-transbox">
+          <h1 class="text-center">Grocery Store</p>
+        </div>
+      </div>
+    
+      <ul class="nav nav-pills nav-fill nav_main">
+        <li class="nav-item">
+          <a class="nav-link" href="index.html">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="about.html">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="contact.html">Contact</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+            aria-expanded="false">Account</a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item btnNotification" href="#">Enable Notifications</a>
+            <section class="subscription-details js-subscription-details is-invisible">
+              <pre><code class="js-subscription-json"></code></pre>
+            </section>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="shoppingcart.html">Shopping Cart</a>
+        </li>
+      </ul>
+    </header>
+
+    <div class="container py-5">
+
+      <section class="content" id="feedback">
+        <div class="row">
+          <div class="col-3">
+            <ul class="nav nav-pills flex-column nav_specials">
+              <li class="nav-item">
+                <a class="nav-link" href="#">Branded Foods</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Veggies and Fruits</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Beverages</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Frozen Foods</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Bread and Bakery</a>
+              </li>
+            </ul>
+            <img src="images/supermarket.jpg" alt="" class="img-fluid" />
+          </div>
+
+          <!--<img src="bb_logo.png" alt="Grocery Store" />-->
+          <div class="col-9">
+            <div span>
+              <h3 class="text-center py-3">Feedback</h3>
+            </div>
+            <div class="row">
+              <div class="col-md-3">
+                <ul class="list-unstyled">
+                  <li><i class="fa fa-home" aria-hidden="true"></i></li>
+                  <li>500 Dover Road</span></li>
+                </ul>
+                <ul class="list-unstyled">
+                  <li><i class="fa fa-envelope" aria-hidden="true"></i></li>
+                  <li>
+                    <span>
+                      <a href="mailto:info@sp.edu.sg">info@sp.edu.sg</a>
+                    </span>
+                  </li>
+                </ul>
+                <ul class="list-unstyled">
+                  <li><i class="fa fa-phone" aria-hidden="true"></i></li>
+                  <li><span>(+65) 6775 1133</span></li>
+                </ul>
+              </div>
+              <div class="col-md-9">
+                <form
+                  name="Feedback"
+                  id="Feedback"
+                  action="#"
+                  method="post"
+                  onsubmit="sendFeedback()"
+                  onreset="disableSubmit()"
+                  class="needs-validation"
+                >
+                  <div class="form-row">
+                    <div class="col-md-6 mb-3">
+                      <label for="Feedback_FirstName">First name</label>
+                      <input
+                        type="text"
+                        class="form-control is-valid"
+                        id="Feedback_FirstName"
+                        placeholder="First Name"
+                        required
+                      />
+                      <div id="Err_FirstName" class="invalid-feedback">
+                        First Name cannot be empty
+                      </div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                      <label for="Feedback_LastName">Last name</label>
+                      <input
+                        type="text"
+                        class="form-control is-valid"
+                        id="Feedback_LastName"
+                        placeholder="Last Name"
+                        required
+                      />
+                      <div class="invalid-feedback">
+                        Last Name cannot be empty
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-row">
+                    <div class="col-md-6 mb-3">
+                      <label for="Feedback_Email">Email</label>
+                      <input
+                        type="email"
+                        class="form-control is-valid"
+                        id="Feedback_Email"
+                        placeholder="Email"
+                      />
+                      <div id="Err_Email" class="invalid-feedback">
+                        Email cannot be empty
+                      </div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                      <label for="Feedback_Telephone">Telephone</label>
+                      <input
+                        type="text"
+                        class="form-control is-valid"
+                        id="Feedback_Telephone"
+                        placeholder="Telephone"
+                      />
+                      <div id="Err_Telephone" class="invalid-feedback">
+                        Telephone cannot be empty
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-row">
+                    <div class="form-group">
+                      <div class="form-check">
+                        <input
+                          class="form-check-input is-valid"
+                          type="checkbox"
+                          value="Phone"
+                          id="Feedback_ContactPhone"
+                          data-toggle="toggle" 
+                        />
+                        <label
+                          class="form-check-label"
+                          for="Feedback_ContactPhone"
+                          style="padding-right: 30px;"
+                        >
+                          Phone
+                        </label>
+                        <input
+                          class="form-check-input is-valid"
+                          type="checkbox"
+                          value="Email"
+                          id="Feedback_ContactEmail"
+                          data-toggle="toggle" 
+                        />
+                        <label
+                          class="form-check-label"
+                          for="Feedback_ContactEmail"
+                        >
+                          Email
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-row">
+                    <label for="Feedback_Subject">Subject</label>
+                    <input
+                      type="text"
+                      class="form-control is-valid"
+                      id="Feedback_Subject"
+                      placeholder="Subject"
+                      required
+                    />
+                      <div class="invalid-feedback">
+                        Subject cannot be empty
+                      </div>
+                  </div>
+                  <div class="form-row py-3">
+                    <div class="custom-control custom-radio">
+                      <input
+                        type="radio"
+                        class="custom-control-input"
+                        id="Feedback_type_Payment"
+                        name="Feedback_type"
+                        required
+                      />
+                      <label
+                        class="custom-control-label"
+                        for="Feedback_type"
+                        style="padding-right: 30px;"
+                        >Payment</label
+                      >
+                      <input
+                        type="radio"
+                        class="custom-control-input"
+                        id="Feedback_type_Order"
+                        name="Feedback_type"
+                        required
+                      />
+                      <label
+                        class="custom-control-label"
+                        for="Feedback_type"
+                        style="padding-right: 30px;"
+                        >Order</label
+                      >
+                      <input
+                        type="radio"
+                        class="custom-control-input"
+                        id="Feedback_type_Others"
+                        name="Feedback_type"
+                        required
+                      />
+                      <label
+                        class="custom-control-label"
+                        for="Feedback_type"
+                        style="padding-right: 30px;"
+                        >Others</label
+                      >
+                      <div class="invalid-feedback">
+                        Please select message category
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="Feedback_Message"
+                      >Type your message here*</label
+                    >
+                    <textarea
+                      class="form-control"
+                      id="Feedback_Message"
+                      rows="5"
+                      required
+                    ></textarea>
+                    <div class="invalid-feedback">
+                      Message cannot be empty
+                    </div>
+                  </div>
+                  <div class="form-row">
+                    <div class="col-md-6">
+                      <button
+                        type="submit"
+                        id="Feedback_Submit"
+                        class="btn btn-primary btn-block"
+                      >
+                        Submit
+                      </button>
+                    </div>
+                    <div class="col-md-6">
+                      <button
+                        type="reset"
+                        id="Feedback_Reset"
+                        class="btn btn-primary btn-block"
+                      >
+                        Clear
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="content" id="storeMap">
+        <div><button type="button" class="btn btn-primary" id="btn_retrieve">Get Stores</button></div>
+        <div class="content">
+          <div class="contact-container py-10"></div>
+        </div>
+        <div class="content centered-content">
+          <div id="map"></div>
+          <div class="row">
+            <div class="col-md-2">
+              <input type="text" class="text text-left" id="txtOrigin" value="">
+            </div>
+            <div class="col-md-2">
+              <select class="custom-select custom-select-sm" id="selMode">
+                <option>Transit</option>
+                <option>Driving</option>
+                <option>Walking</option>
+                <option>Bicycling</option>
+              </select>
+            </div>
+            <div class="col-md-2">
+              <button type="button" class="btn btn-primary" id="btn_getDirections">
+                <i class="fa fa-map-marker"><span class="ml-1">Get Directions</span></i>
+              </button>
+            </div>
+          </div>
+          
+          <div id="directions"></div>
+        </div>
+      </section>
+
+      <section class="content py-4" id="newsletter">
+        <div class="row justify-content-center">
+          <div class="text-center align-self-center">
+            <h5>signup for our newsletter</h5>
+          </div>
+          <form class="form-inline">
+            <div class="form-group mx-sm-3 mb-2">
+              <label for="Email" class="sr-only">Email</label>
+              <input type="email" class="form-control" id="Email"
+              placeholder="example@example.com data-toggle=" tooltip"
+              title="Please enter your email address">
+            </div>
+            <button type="button" id="Submit" disabled="disabled" onClick="return subscribeNewsletter()"
+              class="btn btn-primary mb-2">Subscribe Now</button>
+            <!-- Newsletter Subscription Success MessageBox -->
+            <div class="modal fade" id="msgSubscribe" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog"
+              aria-labelledby="msgSubscribeLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="msgSubscribeLabel"><i class="fa fa-newspaper-o"></i>Newsletter Subscription</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" />
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    .<p><i class="fa fa-check-circle"></i>You have successfully signed up for our newsletter, check your email for
+                      details</p>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal"><i
+                        class="fa fa-window-close-o"></i>Close</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <section class="content text-center" id="footer">
+        <footer>
+          <div class="social-btns">
+            <a type="button" class="btn-floating btn-lg btn-fb"
+              ><i class="fa fa-facebook"></i
+            ></a>
+            <a type="button" class="btn-floating btn-lg btn-tw"
+              ><i class="fa fa-twitter"></i
+            ></a>
+            <a type="button" class="btn-floating btn-lg btn-wa"
+              ><i class="fa fa-whatsapp"></i
+            ></a>
+            <a type="button" class="btn-floating btn-lg btn-tg"
+              ><i class="fa fa-telegram"></i
+            ></a>
+          </div>
+          <!-- Copyright -->
+          <div class="py-1">
+            <p text>Grocery Store &copy; 2020 All Rights Reserved</p>
+          </div>
+          <!-- Copyright -->
+        </footer>
+      </section>
+    </div>
+  </body>
+</html>
