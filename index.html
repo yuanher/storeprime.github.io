@@ -82,27 +82,6 @@
     <div class="container py-5">
       <section class="content" id="specials">
         <div class="row">
-          <!--div class="col-lg-3 col-sm-3">
-            <ul class="nav nav-pills flex-column  nav_specials">
-              <li class="nav-item">
-                <a class="nav-link" href="#">Branded Foods</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Veggies and Fruits</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Beverages</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Frozen Foods</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Bread and Bakery</a>
-              </li>
-            </ul>
-            <img src="images/supermarket.jpg" alt="" class="img-fluid"/>
-          </div-->
-
           <div  class="col-lg-3 col-sm-12" id="navigation_menu_side">
             <nav class="navbar-toggleable-sm navbar-dark bg-dark">
               <div class="container">
@@ -132,7 +111,6 @@
             </nav>
           </div>
 
-          <!--<img src="bb_logo.png" alt="Grocery Store" />-->
           <div class="col-lg-9 col-sm-12">
             <div id="carousel" class="carousel slide" data-ride="carousel">
               <ol class="carousel-indicators">
@@ -198,40 +176,40 @@
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="productName">XXX</h5>
+                <h5 class="modal-title" id="productName"></h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close" />
                 <span aria-hidden="true">&times;</span>
                 </button>
               </div>
               <div class="modal-body" id="productDetails">
-                <div class="container row">
-                  <div class="col-md-4">
+                <div class="container row align-items-center">
+                  <div class="col-md-4 justify-content-center">
                     <img id="productImg" src="" class="card-img-left" alt="">
                   </div>
                   <div class="col-md-4">
                     <h6>Description</h6>
-                    <p id="productDesc" class="text-muted">YYY</p>
+                    <p id="productDesc" class="text-muted"></p>
                     <h6>Brand</h6>
-                    <p id="productBrand" class="text-muted">YYY</p>
+                    <p id="productBrand" class="text-muted"></p>
                     <h6>Category</h6>
-                    <p id="productCategory" class="text-muted">YYY</p>
+                    <p id="productCategory" class="text-muted"></p>
                   </div>
-                  <div class="col-md-4 justify-content-center h-10">
-                    <div class="row mb-4">
-                    <button class="btn btn-md plus-btn" id="btnInc" type="button" name="btnInc">
-                      <i class="fa fa-plus"></i>
-                    </button>
-                    <input class="text text-center" id="productQty" value="0" style="width: 30px">
-                    <button class="btn btn-md float-right minus-btn" id="btnDec" type="button" name="btnDec">
-                      <i class="fa fa-minus"></i>
-                    </button>
+                  <div class="col-md-4 h-10">
+                    <div class="row mb-4 justify-content-center">
+                      <button class="btn btn-md plus-btn" id="btnInc" type="button" name="btnInc">
+                        <i class="fa fa-plus"></i>
+                      </button>
+                      <input class="text text-center" id="productQty" value="0" style="width: 30px">
+                      <button class="btn btn-md float-right minus-btn" id="btnDec" type="button" name="btnDec">
+                        <i class="fa fa-minus"></i>
+                      </button>
                     </div>
-                    <div class="row mt-4">
+                    <div class="row mt-4 justify-content-center">
                       <button class="btn btn-primary add-btn" id="btnAddtoCart" type="button" name="btnAddtoCart">
                         <i class="fa fa-shopping-cart"><span class="ml-1">Add to Cart</span></i>
                       </button>
                     </div>
-                    <div class="row mt-4">
+                    <div class="row mt-4 justify-content-center">
                       <button class="btn btn-primary note-btn" id="btnAddNote" type="button" name="btnAddNote" data-toggle="modal" href="#msgProductNotes">
                         <i class="fa fa-sticky-note-o"><span class="ml-1">Add Note</span></i>
                       </button>
@@ -264,7 +242,7 @@
                     <h6>Product Note: </h6>
                   </div>
                   <div class="col-md-9">
-                    <input class="text text-center" id="productNoteMsg" value="">
+                    <input class="form-control" id="productNoteMsg" value="">
                   </div>
                 </div>
               </div>

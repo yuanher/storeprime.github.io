@@ -91,11 +91,11 @@ function getTopProducts() {
 
     output += `
           <div class="col-lg-2 col-md-3 col-sm-4 px-0">
-            <div class="card hover-higlight">
-                <img src="images/${loopIndex}.png" class="card-img-top" alt="">
+            <div class="card hover-higlight align-items-center">
+                <img src="images/${loopIndex}.png" class="card-img-top img-responsive" alt="" style="max-width: 50%">
                 <div class="card-body">
-                    <h5 class="card-title">${prod.name}</h5>
-                    <p class="card-text">${prod.new_price} <del>${prod.old_price}</del></p>
+                    <h5 class="card-title text-center">${prod.name}</h5>
+                    <p class="card-text text-center">${prod.new_price} <del>${prod.old_price}</del></p>
                 </div>
                 <div class="card-footer">
                    <button type="button" id="btnShowDetails" onClick="return showProductDetails('${sName}', '${loopIndex}')" class="btn btn-primary btn-sm">Show Details</button>
@@ -124,8 +124,8 @@ function showProductDetails(prodID, prodIdx) {
     .on("child_added", function (snapshot) {
       var product = snapshot.toJSON();
 
-      $("#productName").html(product.name);
-      $("#productNameNote").html(product.name);
+      $("#productName").html(product.name + " - Details");
+      $("#productNameNote").html(product.name + " - Note");
       $("#productDesc").html(product.description);
       $("#productBrand").html(product.brand);
       $("#productCategory").html(product.category);
