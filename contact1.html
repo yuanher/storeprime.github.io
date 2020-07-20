@@ -1,26 +1,35 @@
-<!DOCTYPE html>
-<html>
+<html> 
   <head>
-    <!--
-``  Grocery Store Contact Page
-   
-   Filename: contact.html
-   -->
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
-    <title>Grocery Store</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <!--script src="js/jquery-3.2.1.min.js"></script-->
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+      integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA1c5w9dJew38j2SW2oREqJYCSlnffOxbk&libraries=places"></script>
     <script src="js/gs_fb.js"></script>
-    <script src="js/gs_pn.js"></script>
     <script src="js/gs_map.js"></script>
+    <script src="js/gs_pn.js"></script>
+    <script src="js/jquery-3.2.1.min.js"></script>
     <link rel="stylesheet" href="css/gs.css" />
   </head>
-
   <body>
     <header id="top_header" class="container">
       <div class="header-background" id="banner">
@@ -67,8 +76,29 @@
     </header>
 
     <div class="container py-5">
+
       <section class="content" id="feedback">
         <div class="row">
+          <!--div class="col-lg-3 col-sm-3">
+                            <ul class="nav nav-pills flex-column  nav_specials">
+                              <li class="nav-item">
+                                <a class="nav-link" href="#">Branded Foods</a>
+                              </li>
+                              <li class="nav-item">
+                                <a class="nav-link" href="#">Veggies and Fruits</a>
+                              </li>
+                              <li class="nav-item">
+                                <a class="nav-link" href="#">Beverages</a>
+                              </li>
+                              <li class="nav-item">
+                                <a class="nav-link" href="#">Frozen Foods</a>
+                              </li>
+                              <li class="nav-item">
+                                <a class="nav-link" href="#">Bread and Bakery</a>
+                              </li>
+                            </ul>
+                            <img src="images/supermarket.jpg" alt="" class="img-fluid"/>
+                          </div-->
         
           <div class="col-lg-3 col-sm-12" id="navigation_menu_side">
             <nav class="navbar-toggleable-sm navbar-dark bg-dark">
@@ -99,7 +129,6 @@
             </nav>
           </div>
 
-          <!--<img src="bb_logo.png" alt="Grocery Store" />-->
           <div class="col-lg-9 col-sm-12" id="feedbackDetails">
             <div id-"titleFeedback" span>
               <h3 class="text-center py-3">Feedback</h3>
@@ -124,19 +153,38 @@
                 </ul>
               </div>
               <div class="col-lg-9 col-md-12 col-sm-12" id="feedbackForm">
-                <form name="Feedback" id="Feedback" action="#" method="post" onsubmit="sendFeedback()" onreset="disableSubmit()"
-                  class="needs-validation">
+                <form
+                  name="Feedback"
+                  id="Feedback"
+                  action="#"
+                  method="post"
+                  onsubmit="sendFeedback()"
+                  onreset="disableSubmit()"
+                  class="needs-validation"
+                >
                   <div class="form-row">
                     <div class="col-lg-6 col-md-12 col-sm-12 mb-3">
                       <label for="Feedback_FirstName">First name</label>
-                      <input type="text" class="form-control is-valid" id="Feedback_FirstName" placeholder="First Name" required />
+                      <input
+                        type="text"
+                        class="form-control is-valid"
+                        id="Feedback_FirstName"
+                        placeholder="First Name"
+                        required
+                      />
                       <div id="Err_FirstName" class="invalid-feedback">
                         First Name cannot be empty
                       </div>
                     </div>
                     <div class="col-lg-6 col-md-12 col-sm-12 mb-3">
                       <label for="Feedback_LastName">Last name</label>
-                      <input type="text" class="form-control is-valid" id="Feedback_LastName" placeholder="Last Name" required />
+                      <input
+                        type="text"
+                        class="form-control is-valid"
+                        id="Feedback_LastName"
+                        placeholder="Last Name"
+                        required
+                      />
                       <div class="invalid-feedback">
                         Last Name cannot be empty
                       </div>
@@ -145,14 +193,24 @@
                   <div class="form-row">
                     <div class="col-lg-6 col-md-12 col-sm-12 mb-3">
                       <label for="Feedback_Email">Email</label>
-                      <input type="email" class="form-control is-valid" id="Feedback_Email" placeholder="Email" />
+                      <input
+                        type="email"
+                        class="form-control is-valid"
+                        id="Feedback_Email"
+                        placeholder="Email"
+                      />
                       <div id="Err_Email" class="invalid-feedback">
                         Email cannot be empty
                       </div>
                     </div>
                     <div class="col-lg-6 col-md-12 col-sm-12 mb-3">
                       <label for="Feedback_Telephone">Telephone</label>
-                      <input type="text" class="form-control is-valid" id="Feedback_Telephone" placeholder="Telephone" />
+                      <input
+                        type="text"
+                        class="form-control is-valid"
+                        id="Feedback_Telephone"
+                        placeholder="Telephone"
+                      />
                       <div id="Err_Telephone" class="invalid-feedback">
                         Telephone cannot be empty
                       </div>
@@ -161,14 +219,31 @@
                   <div class="form-row">
                     <div class="form-group">
                       <div class="form-check">
-                        <input class="form-check-input is-valid" type="checkbox" value="Phone" id="Feedback_ContactPhone"
-                          data-toggle="toggle" />
-                        <label class="form-check-label" for="Feedback_ContactPhone" style="padding-right: 30px;">
+                        <input
+                          class="form-check-input is-valid"
+                          type="checkbox"
+                          value="Phone"
+                          id="Feedback_ContactPhone"
+                          data-toggle="toggle" 
+                        />
+                        <label
+                          class="form-check-label"
+                          for="Feedback_ContactPhone"
+                          style="padding-right: 30px;"
+                        >
                           Phone
                         </label>
-                        <input class="form-check-input is-valid" type="checkbox" value="Email" id="Feedback_ContactEmail"
-                          data-toggle="toggle" />
-                        <label class="form-check-label" for="Feedback_ContactEmail">
+                        <input
+                          class="form-check-input is-valid"
+                          type="checkbox"
+                          value="Email"
+                          id="Feedback_ContactEmail"
+                          data-toggle="toggle" 
+                        />
+                        <label
+                          class="form-check-label"
+                          for="Feedback_ContactEmail"
+                        >
                           Email
                         </label>
                       </div>
@@ -176,39 +251,93 @@
                   </div>
                   <div class="form-row">
                     <label for="Feedback_Subject">Subject</label>
-                    <input type="text" class="form-control is-valid" id="Feedback_Subject" placeholder="Subject" required />
-                    <div class="invalid-feedback">
-                      Subject cannot be empty
-                    </div>
+                    <input
+                      type="text"
+                      class="form-control is-valid"
+                      id="Feedback_Subject"
+                      placeholder="Subject"
+                      required
+                    />
+                      <div class="invalid-feedback">
+                        Subject cannot be empty
+                      </div>
                   </div>
                   <div class="form-row py-3">
                     <div class="custom-control custom-radio">
-                      <input type="radio" class="custom-control-input" id="Feedback_type_Payment" name="Feedback_type" required />
-                      <label class="custom-control-label" for="Feedback_type" style="padding-right: 30px;">Payment</label>
-                      <input type="radio" class="custom-control-input" id="Feedback_type_Order" name="Feedback_type" required />
-                      <label class="custom-control-label" for="Feedback_type" style="padding-right: 30px;">Order</label>
-                      <input type="radio" class="custom-control-input" id="Feedback_type_Others" name="Feedback_type" required />
-                      <label class="custom-control-label" for="Feedback_type" style="padding-right: 30px;">Others</label>
+                      <input
+                        type="radio"
+                        class="custom-control-input"
+                        id="Feedback_type_Payment"
+                        name="Feedback_type"
+                        required
+                      />
+                      <label
+                        class="custom-control-label"
+                        for="Feedback_type"
+                        style="padding-right: 30px;"
+                        >Payment</label
+                      >
+                      <input
+                        type="radio"
+                        class="custom-control-input"
+                        id="Feedback_type_Order"
+                        name="Feedback_type"
+                        required
+                      />
+                      <label
+                        class="custom-control-label"
+                        for="Feedback_type"
+                        style="padding-right: 30px;"
+                        >Order</label
+                      >
+                      <input
+                        type="radio"
+                        class="custom-control-input"
+                        id="Feedback_type_Others"
+                        name="Feedback_type"
+                        required
+                      />
+                      <label
+                        class="custom-control-label"
+                        for="Feedback_type"
+                        style="padding-right: 30px;"
+                        >Others</label
+                      >
                       <div class="invalid-feedback">
                         Please select message category
                       </div>
                     </div>
                   </div>
                   <div class="form-group">
-                    <label for="Feedback_Message">Type your message here*</label>
-                    <textarea class="form-control" id="Feedback_Message" rows="5" required></textarea>
+                    <label for="Feedback_Message"
+                      >Type your message here*</label
+                    >
+                    <textarea
+                      class="form-control"
+                      id="Feedback_Message"
+                      rows="5"
+                      required
+                    ></textarea>
                     <div class="invalid-feedback">
                       Message cannot be empty
                     </div>
                   </div>
                   <div class="form-row">
                     <div class="col-md-6">
-                      <button type="submit" id="Feedback_Submit" class="btn btn-primary btn-block">
+                      <button
+                        type="submit"
+                        id="Feedback_Submit"
+                        class="btn btn-primary btn-block"
+                      >
                         Submit
                       </button>
                     </div>
                     <div class="col-md-6">
-                      <button type="reset" id="Feedback_Reset" class="btn btn-primary btn-block">
+                      <button
+                        type="reset"
+                        id="Feedback_Reset"
+                        class="btn btn-primary btn-block"
+                      >
                         Clear
                       </button>
                     </div>
@@ -225,12 +354,12 @@
         <div class="content">
           <div class="row contact-container py-10"></div>
         </div>
-        <div class="content centered-content" style="height:100%; min-width:73%; max-width:88%; position:absolute;">
+        <div class="content centered-content">
           <div id="map"></div>
           <div class="form-row py-5" id="travelDirections">
             <div class="col-lg-6 col-md-12 col-sm-12">
               <label for="txtOrigin">Origin</label>
-              <input type="text" class="form-control" id="txtOrigin" value="">
+              <input type="text"class="form-control" id="txtOrigin" value="">
             </div>
             <div class="col-lg-6 col-md-12 col-sm-12">
               <label for="selMode">Travel Mode</label>
@@ -247,9 +376,9 @@
                   <i class="fa fa-map-marker"><span class="ml-1">Get Directions</span></i>
                 </button>
               </div>
-            </div>
+            </div>   
           </div>
-      
+          
           <div id="directions"></div>
         </div>
       </section>
@@ -320,3 +449,4 @@
     </div>
   </body>
 </html>
+ 

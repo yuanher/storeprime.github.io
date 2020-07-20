@@ -114,7 +114,7 @@ function populateStoresOptions(storesArray) {
               <p class="card-text text-muted">${storeInfo.block_house_num} ${storeInfo.street_name} ${storeInfo.postal_code}</p>
             </div>
             <div class="card-footer text-muted">
-              <input type="submit" value="Get Location Map" onclick="return getStoreLocationMap('${sAddr}');"/>
+              <input type="submit" value="Map" onclick="return getStoreLocationMap('${sAddr}');"/>
             </div>
           </div>
         </div>

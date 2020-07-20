@@ -45,18 +45,6 @@
     background-color: gray;
 }
 
-/* Specials Styles */
-
-.nav_specials .nav-link {
-    color: black;
-    background-color: white;
-}
-
-.nav_specials .nav-link:hover {
-    color: white;
-    background-color: black;
-}
-
 /* Carousel Styles */
 
 .carousel-link {
@@ -68,9 +56,4 @@
 #map {
     height: 50%;
     width: 100%;
-}
-
-.centered-content {
-    display: block;
-    padding: 0 5px;
 }
