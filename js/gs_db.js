@@ -2,21 +2,18 @@ var prodRef;
 var orderRef;
 var products = {};
 
-var firebaseConfig = {
-  apiKey: "AIzaSyCgcmhorEpf9bpdpN1uNnqEwsAUsSCXby4",
-  authDomain: "gstore-e1ded.firebaseapp.com",
-  databaseURL: "https://gstore-e1ded.firebaseio.com",
-  projectId: "gstore-e1ded",
-  storageBucket: "gstore-e1ded.appspot.com",
-  messagingSenderId: "821419736295",
-  appId: "1:821419736295:web:bbbe2b3649cf4d16c93642",
-  measurementId: "G-B8G8CC555G",
-};
-// Initialize Firebase
-firebase.initializeApp(firebaseConfig);
+// enable offline data
+dbRef.enablePersistence().catch(function (err) {
+  if (err.code == "failed-precondition") {
+    // probably multible tabs open at once
+    console.log("persistance failed");
+  } else if (err.code == "unimplemented") {
+    // lack of browser support for the feature
+    console.log("persistance not available");
+  }
+});
 
 // Get reference to products collection in Firebase database
-const dbRef = firebase.firestore();
 prodRef = dbRef.collection("products");
 
 // Document.onload events
