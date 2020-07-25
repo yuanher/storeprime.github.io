@@ -1,20 +1,15 @@
-const staticGroceryStore = "GroceryStore-v1";
+const staticCacheName = "gs-static-v1";
+const dynamicCacheName = "gs-dynamic-v1";
 const assets = [
   "/",
-  "/manifest.json",
   "/index.html",
-  "/about.html",
-  "/contact.html",
-  "/shoppingcart.html",
+  "/fallback.html",
   "/css/gs.css",
-  "/serviceWorker.js",
   "/js/gs_db.js",
   "/js/gs_fb.js",
   "/js/gs_map.js",
   "/js/gs_pn.js",
   "/js/gs_sc.js",
-  "/js/jquery-3.2.1.min.js",
-  "/js/jquery.min.js",
   "/images/1.png",
   "/images/2.png",
   "/images/3.png",
@@ -29,29 +24,71 @@ const assets = [
   "/images/logo.png",
   "/images/seafoods.jpg",
   "/images/supermarket.jpg",
+  "/fonts/cac_champagne.ttf",
+  "/fonts/cac_champagne.woff",
+  "/fonts/OdibeeSans-Regular.ttf",
 ];
 
-self.addEventListener("install", (installEvent) => {
-  installEvent.waitUntil(
-    caches.open(staticGroceryStore).then((cache) => {
+// cache size limit function
+const limitCacheSize = (name, size) => {
+  caches.open(name).then((cache) => {
+    cache.keys().then((keys) => {
+      if (keys.length > size) {
+        cache.delete(keys[0]).then(limitCacheSize(name, size));
+      }
+    });
+  });
+};
+
+// install event
+self.addEventListener("install", (evt) => {
+  //console.log('service worker installed');
+  evt.waitUntil(
+    caches.open(staticCacheName).then((cache) => {
+      console.log("caching shell assets");
       cache.addAll(assets);
     })
   );
 });
 
-self.addEventListener("fetch", (fetchEvent) => {
-  if (!(fetchEvent.request.url.indexOf("http") === 0)) return; // skip the request. if request is not made with http protocol
-  fetchEvent.respondWith(
-    caches.open(staticGroceryStore).then(function (cache) {
-      return cache.match(fetchEvent.request).then((res) => {
+// activate event
+self.addEventListener("activate", (evt) => {
+  //console.log('service worker activated');
+  evt.waitUntil(
+    caches.keys().then((keys) => {
+      //console.log(keys);
+      return Promise.all(
+        keys
+          .filter((key) => key !== staticCacheName && key !== dynamicCacheName)
+          .map((key) => caches.delete(key))
+      );
+    })
+  );
+});
+
+// fetch event
+self.addEventListener("fetch", (evt) => {
+  if (!(evt.request.url.indexOf("http") === 0)) return; // skip the request. if request is not made with http protocol
+  evt.respondWith(
+    caches
+      .match(evt.request)
+      .then((cacheRes) => {
         return (
-          res ||
-          fetch(fetchEvent.request).then(function (res) {
-            cache.put(fetchEvent.request, res.clone());
-            return res;
+          cacheRes ||
+          fetch(evt.request).then((fetchRes) => {
+            return caches.open(dynamicCacheName).then((cache) => {
+              cache.put(evt.request.url, fetchRes.clone());
+              // check cached items size
+              limitCacheSize(dynamicCacheName, 15);
+              return fetchRes;
+            });
           })
         );
-      });
-    })
+      })
+      .catch(() => {
+        if (evt.request.url.indexOf(".html") > -1) {
+          return caches.match("/fallback.html");
+        }
+      })
   );
 });
