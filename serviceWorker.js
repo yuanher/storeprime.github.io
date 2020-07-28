@@ -69,7 +69,6 @@ self.addEventListener("activate", (evt) => {
 // fetch event
 self.addEventListener("fetch", (evt) => {
   if (!(evt.request.url.indexOf("http") === 0)) return; // skip the request. if request is not made with http protocol
-  if (!(evt.request.url.indexOf("https") === 0)) return; // skip the request. if request is not made with http protocol
   if (evt.request.url.indexOf("firestore.googleapis.com") === -1) {
     evt.respondWith(
       caches
