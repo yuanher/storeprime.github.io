@@ -68,59 +68,28 @@ self.addEventListener("activate", (evt) => {
 
 // fetch event
 self.addEventListener("fetch", (evt) => {
+  //console.log('fetch event', evt);
   if (!(evt.request.url.indexOf("http") === 0)) return; // skip the request. if request is not made with http protocol
-  if (evt.request.url.indexOf("firestore.googleapis.com") === -1) {
-    evt.respondWith(
-      caches
-        .match(evt.request)
-        .then((cacheRes) => {
-          return (
-            cacheRes ||
-            fetch(evt.request).then((fetchRes) => {
-              return caches.open(dynamicCacheName).then((cache) => {
-                cache.put(evt.request.url, fetchRes.clone());
-                // check cached items size
-                limitCacheSize(dynamicCacheName, 15);
-                return fetchRes;
-              });
-            })
-          );
-        })
-        .catch(() => {
-          if (evt.request.url.indexOf(".html") > -1) {
-            return caches.match("/fallback.html");
-          }
-        })
-    );
-  }
-});
-
-self.addEventListener("push", function (event) {
-  self.registration.pushManager.getSubscription().then(function (subscription) {
-    isSubscribed = !(subscription === null);
-
-    if (isSubscribed) {
-      console.log("[Service Worker] Push Received.");
-      console.log(
-        `[Service Worker] Push had this data: "${event.data.text()}"`
-      );
-
-      const title = "Grocery Store";
-      const options = {
-        body: event.data.text(),
-        icon: "images/icons/icon-96x96.png",
-        badge: "images/badge.png",
-      };
-
-      self.registration.showNotification(title, options);
-    }
-  });
-});
-
-self.addEventListener("notificationclick", function (event) {
-  console.log("[Service Worker] Notification click Received.");
-
-  event.notification.close();
-
-  event.waitUntil(clients.openWindow("https://developers.google.com/web/"));
+  evt.respondWith(
+    caches
+      .match(evt.request)
+      .then((cacheRes) => {
+        return (
+          cacheRes ||
+          fetch(evt.request).then((fetchRes) => {
+            return caches.open(dynamicCacheName).then((cache) => {
+              cache.put(evt.request.url, fetchRes.clone());
+              // check cached items size
+              limitCacheSize(dynamicCacheName, 15);
+              return fetchRes;
+            });
+          })
+        );
+      })
+      .catch(() => {
+        if (evt.request.url.indexOf(".html") > -1) {
+          return caches.match("/fallback.html");
+        }
+      })
+  );
 });

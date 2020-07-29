@@ -1,10 +1,7 @@
 "use strict";
 
-//const applicationServerPublicKey =
-//  "BBTlK2k5nu5tkArKH_UwbqtgfFq44JEMdc1jIQf-W0NFYIoGd9gM8NPoUu5Ce1uztnfWVBjZwkh5TPaM8XzySoE";
-
 const applicationServerPublicKey =
-  "BB-zomSDa5LTTgUHCLs8bgK3m05bvAjAgCtpp7HNO2qV5eX0SgeQxoARuQjB_1stkogVKmMfNAHOXZtdp4e7208";
+  "BBTlK2k5nu5tkArKH_UwbqtgfFq44JEMdc1jIQf-W0NFYIoGd9gM8NPoUu5Ce1uztnfWVBjZwkh5TPaM8XzySoE";
 
 let isSubscribed = false;
 let swRegistration = null;

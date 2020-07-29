@@ -1,18 +1,3 @@
-var orderRef;
-
-// enable offline data
-dbRef.enablePersistence().catch(function (err) {
-  if (err.code == "failed-precondition") {
-    // probably multible tabs open at once
-    console.log("persistance failed");
-  } else if (err.code == "unimplemented") {
-    // lack of browser support for the feature
-    console.log("persistance not available");
-  }
-});
-
-orderRef = dbRef.collection("orders");
-
 $(function () {
   doShowAll();
 });
@@ -20,24 +5,10 @@ $(function () {
 function doShowAll() {
   populateTable("sc");
   populateTable("pn");
+}
 
-  //Check number of shopping cart items
-  var itemQty = 0;
-  for (i = 0; i <= localStorage.length - 1; i++) {
-    key = localStorage.key(i);
-    if (!key.includes("firestore")) {
-      if (!key.endsWith("Note")) {
-        itemQty += 1;
-      }
-    }
-  }
-
-  //Disable checkout button if no shopping cart items
-  if (itemQty == 0) {
-    $(".checkout").prop("disabled", true);
-  } else {
-    $(".checkout").prop("disabled", false);
-  }
+function Checkout() {
+  alert("Checkout");
 }
 
 function populateTable(tableType) {
@@ -77,7 +48,7 @@ function populateTable(tableType) {
     key = localStorage.key(i);
     noteEntry = "txt" + key;
 
-    if (!key.includes("firestore")) {
+    if (key != "firebase:host:grocerystore-bf6d2.firebaseio.com") {
       if (tableType == "pn") {
         // Add row entry if key ends with "Note" i.e. all product note items
         if (key.endsWith("Note")) {
@@ -139,49 +110,4 @@ function UpdateItem(name) {
 function ClearAll() {
   localStorage.clear();
   doShowAll();
-}
-
-function Checkout() {
-  var orderItems = [];
-
-  // Get all shopping cart items from localStorage
-  for (i = 0; i <= localStorage.length - 1; i++) {
-    var key = localStorage.key(i);
-
-    if (!key.includes("firestore")) {
-      if (!key.endsWith("Note")) {
-        const orderItem = {
-          name: key,
-          ingredients: localStorage.getItem(key),
-        };
-
-        orderItems.push(orderItem);
-      }
-    }
-  }
-
-  // Create new order from shopping cart items
-  var order = {
-    orderDT: new Date().toISOString(),
-    items: orderItems,
-  };
-
-  // Add new order to Firestore database orders collection
-  orderRef
-    .add(order)
-    .then(function () {
-      // Remove checked out shopping cart items from localStorage
-      for (var i = 0; i < orderItems.length; i++) {
-        localStorage.removeItem(orderItems[i].name);
-      }
-
-      //Refresh Shopping Cart screen
-      doShowAll();
-
-      // Show checkout success message
-      $("#msgCheckout").modal();
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
 }
