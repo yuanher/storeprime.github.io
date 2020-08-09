@@ -33,12 +33,16 @@ $(function () {
     }
   });
 
+  // onclick event handler for Feedback submit button
+  $("#Feedback_Submit").on("click", function (event) {
+    event.preventDefault();
+    $("#msgFeedback").modal();
+  });
+
   // onchange event handler for Feedback form fields
   $(
     "input[type='text'], input[type='email'], input[type='checkbox'], textarea"
   ).bind("keyup change click", function () {
-    var valid = true;
-    var errMsg = "";
     $.each(
       $(
         "input[type='text'], input[type='email'], input[type='checkbox'], textarea"
@@ -60,11 +64,6 @@ $(function () {
   });
 });
 
-// Disable Feedback Form submit button when reset button is clicked
-function disableSubmit() {
-  $("#Feedback input[type='submit']").attr("disabled", true);
-}
-
 // Newsletter Subscription Form submit button event handler
 function subscribeNewsletter() {
   $("#msgSubscribe").modal();
@@ -72,7 +71,5 @@ function subscribeNewsletter() {
 
 // Feedback Form submit button event handler
 function sendFeedback() {
-  alert(
-    "We have received your valuable feedback, thank you and have a nice day!"
-  );
+  $("#msgFeedback").modal();
 }

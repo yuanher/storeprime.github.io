@@ -138,7 +138,7 @@
                     <div class="col-lg-6 col-md-12 col-sm-12 mb-3">
                       <label for="Feedback_LastName">Last name</label>
                       <input type="text" class="form-control is-valid" id="Feedback_LastName" placeholder="Last Name" required />
-                      <div class="invalid-feedback">
+                      <div id="Err_LasttName" class="invalid-feedback">
                         Last Name cannot be empty
                       </div>
                     </div>
@@ -146,7 +146,7 @@
                   <div class="form-row">
                     <div class="col-lg-6 col-md-12 col-sm-12 mb-3">
                       <label for="Feedback_Email">Email</label>
-                      <input type="email" class="form-control is-valid" id="Feedback_Email" placeholder="Email" />
+                      <input type="email" class="form-control is-valid" id="Feedback_Email" placeholder="Email" required/>
                       <div id="Err_Email" class="invalid-feedback">
                         Email cannot be empty
                       </div>
@@ -167,7 +167,7 @@
                         <label class="form-check-label" for="Feedback_ContactPhone" style="padding-right: 30px;">
                           Phone
                         </label>
-                        <input class="form-check-input is-valid" type="checkbox" value="Email" id="Feedback_ContactEmail"
+                        <input class="form-check-input is-valid" type="checkbox" checked="true" value="Email" id="Feedback_ContactEmail"
                           data-toggle="toggle" />
                         <label class="form-check-label" for="Feedback_ContactEmail">
                           Email
@@ -178,27 +178,21 @@
                   <div class="form-row">
                     <label for="Feedback_Subject">Subject</label>
                     <input type="text" class="form-control is-valid" id="Feedback_Subject" placeholder="Subject" required />
-                    <div class="invalid-feedback">
+                    <div id="Err_Subject" class="invalid-feedback">
                       Subject cannot be empty
                     </div>
                   </div>
                   <div class="form-row py-3">
-                    <div class="custom-control custom-radio">
-                      <input type="radio" class="custom-control-input" id="Feedback_type_Payment" name="Feedback_type" required />
-                      <label class="custom-control-label" for="Feedback_type" style="padding-right: 30px;">Payment</label>
-                      <input type="radio" class="custom-control-input" id="Feedback_type_Order" name="Feedback_type" required />
-                      <label class="custom-control-label" for="Feedback_type" style="padding-right: 30px;">Order</label>
-                      <input type="radio" class="custom-control-input" id="Feedback_type_Others" name="Feedback_type" required />
-                      <label class="custom-control-label" for="Feedback_type" style="padding-right: 30px;">Others</label>
-                      <div class="invalid-feedback">
-                        Please select message category
-                      </div>
+                    <div class="radio">
+                      <label class="radio-inline"><input type="radio" name="Feedback_type" style="margin-right:5px;" required>Payment</label>
+                      <label class="radio-inline" style="padding-left:15px;"><input type="radio" name="Feedback_type" checked="true" style="margin-right:5px;" required>Order</label>
+                      <label class="radio-inline" style="padding-left:15px;"><input type="radio" name="Feedback_type" style="margin-right:5px;" required>Others</label>
                     </div>
                   </div>
                   <div class="form-group">
                     <label for="Feedback_Message">Type your message here*</label>
                     <textarea class="form-control" id="Feedback_Message" rows="5" required></textarea>
-                    <div class="invalid-feedback">
+                    <div id="Err_Message" class="invalid-feedback">
                       Message cannot be empty
                     </div>
                   </div>
@@ -207,6 +201,28 @@
                       <button type="submit" id="Feedback_Submit" class="btn btn-primary btn-block">
                         Submit
                       </button>
+                      <!-- Feedback Success MessageBox -->
+                      <div class="modal fade" id="msgFeedback" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog"
+                        aria-labelledby="msgFeedbackLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="msgFeedbackLabel"><i class="fa fa-newspaper-o"></i>Feedback
+                              </h5>
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close" />
+                              <span aria-hidden="true">&times;</span>
+                              </button>
+                            </div>
+                            <div class="modal-body">
+                              .<p><i class="fa fa-check-circle"></i>Thanks for submitting your feedback. We will get in touch with you shortly.</p>
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-primary" data-dismiss="modal"><i
+                                  class="fa fa-window-close-o"></i>Close</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                     <div class="col-md-6">
                       <button type="reset" id="Feedback_Reset" class="btn btn-primary btn-block">
