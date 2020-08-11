@@ -133,21 +133,19 @@ $(function () {
     var storesData;
 
     // Retrieves list of stores from data,gov.sg API
-    fetch(
-      "https://data.gov.sg/api/action/datastore_search?resource_id=3561a136-4ee4-4029-a5cd-ddf591cce643&limit=6"
-    ).then((data) => populateStoresOptions(data.result.records));
-
-    /*$.get(
-      "https://data.gov.sg/api/action/datastore_search?resource_id=3561a136-4ee4-4029-a5cd-ddf591cce643&limit=6",
+    $.get(
+      "https://data.gov.sg/api/action/datastore_search?resource_id=3561a136-4ee4-4029-a5cd-ddf591cce643&limit=5",
       function (data) {
         //alert(data.result.records[0].licensee_name);
         storesData = data;
 
-        // Display list of retrieved store details
-        populateStoresOptions(storesData.result.records);
+        populateStoresOptions(
+          //Object.getOwnPropertyNames(storesData.result.records)
+          storesData.result.records
+        );
       },
       "json"
-    );*/
+    );
   });
 
   // Click event handler for btn_getDirections
